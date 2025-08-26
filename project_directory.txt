@@ -1,0 +1,70 @@
+signal-lake/
+├─ docker-compose.yml          # pg + streamlit services
+├─ .env.example                # DB creds & Alpaca keys
+├─ src/
+│   ├─ data_ingest.py          # fetch + indicators + DB insert
+│   ├─ models.py               # LSTM / ARIMA / XGB + ensemble
+│   ├─ db.py                   # connection helpers, SQL text
+│   ├─ sql/
+│   │    ├─ schema.sql         # CREATE TABLE market_data, predictions
+│   │    └─ views.sql          # optional SQL views (MACD view etc.)
+│   └─ utils.py                # indicator functions, logging setup
+├─ app/
+│   └─ dashboard.py            # Streamlit UI
+├─ requirements.txt
+└─ README.md
+
+
+signal-lake/
+├─ config/
+│   └─ settings.yml          # (your YAML copied here)
+├─ docker-compose.yml
+├─ .env.example
+├─ src/
+│   ├─ config.py             # YAML loader (provided earlier)
+│   ├─ db.py                 # pg connection + upsert helpers
+│   ├─ data_ingest.py        # fetch + write market_data
+│   ├─ indicators.py         # TA-Lib wrappers
+│   ├─ models.py             # LSTM / ARIMA / XGB / ensemble
+│   ├─ features.py           # dataframe→indicator pipeline
+│   └─ utils.py              # logging, misc
+└─ app/
+    └─ dashboard.py          # Streamlit UI
+
+
+
+
+
+High-Level Architecture (v1.0)
+              ┌────────────┐   1-min pull   ┌───────────────┐
+              │  scheduler │───────────────▶│  Alpaca API   │
+              └────────────┘                └───────────────┘
+                    │
+                    ▼
+     ┌──────────────────────────────────────────────────┐
+     │              data_ingest.py                     │
+     │  · fetch latest bar for {TICKER}                │
+     │  · compute indicators (MACD, RSI…)              │
+     │  · write raw + features ➜  market_data          │
+     │  · run LSTM + ARIMA + XGB ➜  predictions        │
+     └──────────────────────────────────────────────────┘
+                    │  (psycopg2 / SQLAlchemy)
+                    ▼
+         ┌────────────────────────────┐
+         │     PostgreSQL (Docker)    │
+         │  • market_data             │
+         │  • predictions             │
+         │  • sql_views (optional)    │
+         └────────────────────────────┘
+                    │
+                    ▼
+        ┌───────────────────────────────┐
+        │      Streamlit dashboard      │
+        │  • Ticker selector            │
+        │  • Price vs forecast chart    │
+        │  • Probability gauge          │
+        │  • Rolling RMSE sparkline     │
+        │  • On-screen alert highlight  │
+        └───────────────────────────────┘
+
+

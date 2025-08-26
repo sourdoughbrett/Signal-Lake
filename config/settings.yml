@@ -1,0 +1,21 @@
+#  Settings
+
+# Keys
+API_KEY: ''
+SECRET_KEY: ''
+api_base_url: 'https://paper-api.alpaca.markets' #switch url to 'https://api.alpaca.markets' for live trading
+
+
+# Date constraints
+# The start time should be updated daily so the script does not pull unnecessary data, etc.
+start_time: "2025-08-18"  # Start date in "yyyy-mm-dd" format
+end_time: "2025-12-31"    # End date in "yyyy-mm-dd" format
+
+# Position sizing (amount in USD per trade)
+position_size: 5000
+timeframe: "Minute"
+
+# Symbols List (ONLY ENTER ONE SYMBOL. WILL NOT WORK WITH MORE THAN 1 SYMBOL)
+symbols:
+  - NVDA
+  

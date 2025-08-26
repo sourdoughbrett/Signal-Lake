@@ -1,0 +1,16 @@
+# requirements.txt
+alpaca-trade-api==3.0.1
+alpaca-data-api==3.0.1
+pandas
+numpy
+psycopg2-binary
+SQLAlchemy
+pydantic
+pyyaml
+streamlit
+plotly
+ta-lib
+tensorflow==2.16.1
+statsmodels
+xgboost
+schedule
