@@ -4,7 +4,7 @@ Real-time, single-ticker forecasting pipeline that ingests minute bars, engineer
 
 ## **Overview**
 
-SignalLake is a compact, production-style demo that brings data engineering, ML modeling, and analytics together in one codebase.
+*SignalLake is a compact, production-style demo that brings data engineering, ML modeling, and analytics together in one codebase.*
 
 **Ingestion:** pulls 1-minute OHLCV from Alpaca and keeps a rolling 7-day history in Postgres (idempotent upserts).
 
