@@ -49,7 +49,7 @@ KPIs: latest price, best model’s exact-horizon forecast, best rolling RMSE (n=
 - predictions(ticker, ts, horizon_min, model, pred_value) (PK on all 4)
 -forecast_metrics(ticker, ts, model, rmse_100)
 
-Quick Start (Local)
+## **Quick Start (Local)**
 **0) Prerequisites**
 
 Postgres running locally (e.g., localhost:5432)
