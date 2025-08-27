@@ -16,7 +16,7 @@ SignalLake is a compact, production-style demo that brings data engineering, ML 
 
 **Analytics:** Streamlit dashboard with Today / Last 6h / Last 24h chart views, forecast overlays, and KPI cards.
 
-This MVP is tuned for one symbol at a time to stay simple and fast.
+**Limitations:** This MVP is tuned for one symbol at a time to stay simple and fast.
 
 ## **Features & Flow**
 Architecture (high level)
