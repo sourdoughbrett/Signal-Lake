@@ -18,8 +18,7 @@ Real-time, single-ticker forecasting pipeline that ingests minute bars, engineer
 
 **Limitations:** This MVP is tuned for one symbol at a time to stay simple and fast.
 
-## **Features & Flow**
-Architecture (high level)
+## **Features & Flow, Architecture (high-level)**
 
 Alpaca → Ingest
 src/data_ingest.py fetches minute bars (rolling 7 days), flattens and enriches with indicators, and upserts into Postgres market_data.
