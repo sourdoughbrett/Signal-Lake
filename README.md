@@ -20,7 +20,7 @@ This project is designed to be used to assist in intraday and swing trading effo
 
 **Limitations:** This MVP is tuned for one symbol at a time to stay simple and fast.
 
-## 2️⃣ **Features & Flow, Architecture (high-level)** 
+## 2️⃣ **Features & Flow, Architecture (high-level)** 🧱
 
 Alpaca → Ingest
 src/data_ingest.py fetches 1-minute bars (rolling 7 days), flattens and enriches with indicators, and upserts into Postgres market_data.
@@ -111,7 +111,7 @@ symbols:
 We intentionally read Alpaca keys from environment (.env) and ignore the YAML values for safety.
 
 
-4) Initialize schema & start the worker
+**4) Initialize schema & start the worker**
 
 The schema is created automatically at startup.
 
@@ -132,7 +132,7 @@ INFO: Upserted 240 forecast rows.
 
 The loop runs ingest every 60s and forecast every 5m.
 
-5) Start the dashboard
+**5) Start the dashboard**
 
 In another terminal:
 
@@ -153,9 +153,16 @@ Change ticker: update config/settings.yml (symbols: [<TICKER>]), then restart:
 
 1. Stop the worker (src.main) and the dashboard
 
-2. Start python -m src.main again
+2. Clear Database Cache:
+    ```
+    TRUNCATE TABLE market_data;
+    TRUNCATE TABLE predictions;
+    TRUNCATE TABLE forecast_metrics;
+    ```
 
-3. Start streamlit run app/dashboard.py
+4. Start python -m src.main again
+
+5. Start streamlit run app/dashboard.py
 
 Backfill behavior: ingest maintains a rolling 7-day window in market_data for the current ticker. This guarantees a full intraday chart on restart.
 
