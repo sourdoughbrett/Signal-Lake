@@ -1,10 +1,10 @@
-# **SignalLake** — Local MVP
+# 🏞️ **SignalLake** — Local MVP
 
 Real-time, single-ticker forecasting pipeline that ingests 1-minute bars from Alpaca, engineers features, trains ARIMA + XGBoost, writes predictions/metrics to Postgres, and serves an interactive Streamlit dashboard.
 
 This project is designed to be used to assist in intraday and swing trading efforts.
 
-## **Overview**
+## 1️⃣ **Overview** 📣
 
 *SignalLake is a compact, production-style demo that brings data engineering, ML modeling, and analytics together in one codebase.*
 
@@ -20,7 +20,7 @@ This project is designed to be used to assist in intraday and swing trading effo
 
 **Limitations:** This MVP is tuned for one symbol at a time to stay simple and fast.
 
-## **Features & Flow, Architecture (high-level)**
+## 2️⃣ **Features & Flow, Architecture (high-level)** 
 
 Alpaca → Ingest
 src/data_ingest.py fetches 1-minute bars (rolling 7 days), flattens and enriches with indicators, and upserts into Postgres market_data.
@@ -50,7 +50,7 @@ KPIs: latest price, best model’s exact-horizon forecast, best rolling RMSE (n=
 - predictions(ticker, ts, horizon_min, model, pred_value) (PK on all 4)
 -forecast_metrics(ticker, ts, model, rmse_100)
 
-## **Quick Start (Local)**
+## 3️⃣ **Quick Start (Local)** 🚀
 **0) Prerequisites**
 
 Postgres running locally (e.g., localhost:5432)
