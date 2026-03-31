@@ -1,6 +1,8 @@
 # **SignalLake** — Local MVP
 
-Real-time, single-ticker forecasting pipeline that ingests minute bars, engineers features, trains ARIMA + XGBoost, writes predictions/metrics to Postgres, and serves an interactive Streamlit dashboard.
+Real-time, single-ticker forecasting pipeline that ingests 1-minute bars from Alpaca, engineers features, trains ARIMA + XGBoost, writes predictions/metrics to Postgres, and serves an interactive Streamlit dashboard.
+
+This project is designed to be used to assist in intraday and swing trading efforts.
 
 ## **Overview**
 
@@ -21,7 +23,7 @@ Real-time, single-ticker forecasting pipeline that ingests minute bars, engineer
 ## **Features & Flow, Architecture (high-level)**
 
 Alpaca → Ingest
-src/data_ingest.py fetches minute bars (rolling 7 days), flattens and enriches with indicators, and upserts into Postgres market_data.
+src/data_ingest.py fetches 1-minute bars (rolling 7 days), flattens and enriches with indicators, and upserts into Postgres market_data.
 
 Model Train + Forecast
 src/models.py reads the most-recent rows (default TRAIN_ROWS=10000), trains ARIMA (5,1,0) and XGBoost with sliding windows, generates 60-minute forecasts, and upserts into predictions. It then writes rolling RMSE for each model to forecast_metrics.
