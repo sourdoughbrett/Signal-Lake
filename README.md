@@ -37,7 +37,7 @@ Forecast lines (ensemble, ARIMA, XGB)
 
 KPIs: latest price, best model’s exact-horizon forecast, best rolling RMSE (n=200)
 
-**Tech Stack**
+**Tech Stack** 💻
 
 - Python 3.9+ (Anaconda or venv)
 - Postgres 13+ (local or managed)
@@ -147,7 +147,7 @@ Important: Keep the worker (src.main) running so the dashboard has fresh data.
 
 ---
 
-## **Usage Notes**
+## 4️⃣ **Usage Notes**
 
 Change ticker: update config/settings.yml (symbols: [<TICKER>]), then restart:
 
@@ -172,7 +172,7 @@ RMSE windows: dashboard shows n=200 rolling RMSE per model (aligned realized poi
 
 ---
 
-# **Repository Layout**
+# **Repository Layout** 📁
 
 ```plaintext
 signal-lake/
