@@ -4,7 +4,6 @@ Real-time, single-ticker forecasting pipeline that ingests 1-minute bars from Al
 
 This project is designed to be used to assist in intraday and swing trading efforts.
 
-![Dashboard Preview](./images/signal_lake_cover.png)
 
 ## 1️⃣ **Overview** 📣
 
