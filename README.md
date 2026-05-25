@@ -39,7 +39,7 @@ Forecast lines (ensemble, ARIMA, XGB)
 
 KPIs: latest price, best model’s exact-horizon forecast, best rolling RMSE (n=200)
 
-**Tech Stack** 💻
+**Requirements/Stack** 💻
 
 - Python 3.9+ (Anaconda or venv)
 - Postgres 13+ (local or managed)
@@ -50,7 +50,7 @@ KPIs: latest price, best model’s exact-horizon forecast, best rolling RMSE (n=
 - Data Model
 - market_data(ticker, ts, open, high, low, close, volume, macd, rsi, …features…)
 - predictions(ticker, ts, horizon_min, model, pred_value) (PK on all 4)
--forecast_metrics(ticker, ts, model, rmse_100)
+- forecast_metrics(ticker, ts, model, rmse_100)
 
 ## 3️⃣ **Quick Start (Local)** 🚀
 **0) Prerequisites**
